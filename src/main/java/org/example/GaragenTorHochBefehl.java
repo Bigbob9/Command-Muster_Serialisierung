@@ -1,20 +1,17 @@
 package org.example;
 
-public class GaragenTorOeffnenBefehl implements Befehl{
+public class GaragenTorHochBefehl implements Befehl {
 
     GaragenTor garagenTor;
-
-    public GaragenTorOeffnenBefehl(GaragenTor garagenTor){
+    public GaragenTorHochBefehl(GaragenTor garagenTor) {
         this.garagenTor = garagenTor;
     }
-
 
     public void ausfuehren(){
         garagenTor.hoch();
     }
 
-    @Override
-    public void rueckgaengig() {
+    public void rueckgaengig(){
         garagenTor.runter();
     }
 }

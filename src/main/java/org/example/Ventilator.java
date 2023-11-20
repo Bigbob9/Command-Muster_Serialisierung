@@ -1,9 +1,18 @@
 package org.example;
 
 public class Ventilator {
-    public void schnell(){};
+    String ort;
+    public Ventilator(String ort){
+        this.ort = ort;
+
+    }
+    public void schnell(){
+        System.out.println(ort + " Ventilator ist auf schnell");
+    };
     public void mittel(){};
     public void langsam(){};
-    public void aus(){};
+    public void aus(){
+        System.out.println(ort + " Ventilator ist aus");
+    };
     public void getStufe(){};
 }

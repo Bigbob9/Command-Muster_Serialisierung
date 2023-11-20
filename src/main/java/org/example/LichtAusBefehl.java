@@ -13,4 +13,9 @@ public class LichtAusBefehl implements Befehl {
     public void ausfuehren(){
         licht.aus();
     }
+
+    @Override
+    public void rueckgaengig() {
+        licht.ein();
+    }
 }

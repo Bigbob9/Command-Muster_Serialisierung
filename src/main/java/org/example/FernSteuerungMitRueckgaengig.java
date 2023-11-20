@@ -1,10 +1,11 @@
 package org.example;
 
-public class FernSteuerung {
+public class FernSteuerungMitRueckgaengig {
     Befehl[] anBefehle;
     Befehl[] ausBefehle;
+    Befehl rueckgaengigBefehl;
 
-    public FernSteuerung(){
+    public FernSteuerungMitRueckgaengig(){
         anBefehle = new Befehl[7];
         ausBefehle = new Befehl[7];
 
@@ -12,25 +13,33 @@ public class FernSteuerung {
         anBefehle[i] = new keinBefehl();
         ausBefehle[i] = new keinBefehl();
      }
+     rueckgaengigBefehl = new keinBefehl();
     }
 
     public void setBefehl(int platz, Befehl anBefehl, Befehl ausBefehl){
         anBefehle[platz] = anBefehl;
         ausBefehle[platz] = ausBefehl;
+
     }
     public void anKnopfWurdeGedrueckt(int platz){
         anBefehle[platz].ausfuehren();
+        rueckgaengigBefehl = anBefehle[platz];
     }
     public void ausKnopfWurdeGedrueckt(int platz){
         ausBefehle[platz].ausfuehren();
+        rueckgaengigBefehl = ausBefehle[platz];
     }
 
+    public void rueckgaengigKnopfWurdeGedrueckt(){
+        rueckgaengigBefehl.rueckgaengig();
+    }
     public String toString(){
         StringBuffer stringBuff = new StringBuffer();
         stringBuff.append("\n------ Fernsteuerung ------\n");
         for(int i = 0; i < anBefehle.length; i++){
-            stringBuff.append("[P " + i + "] " + anBefehle[i].getClass().getName() + "     " + ausBefehle[i].getClass().getName() + "\n");
+            stringBuff.append("[P " + i + "] " + anBefehle[i].getClass().getName() + "            " + ausBefehle[i].getClass().getName() + "\n");
         }
+        stringBuff.append("Rückgängig" + rueckgaengigBefehl.getClass().getName());
         return stringBuff.toString();
     }
 }
