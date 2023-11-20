@@ -1,18 +1,18 @@
 package org.example;
 
-public class VentilatorAusBefehl implements Befehl{
+public class VentilatorMittelBefehl implements Befehl{
 
     Ventilator ventilator;
     int letzteGeschwindigkeit;
 
-    public VentilatorAusBefehl(Ventilator ventilator){
+    public VentilatorMittelBefehl(Ventilator ventilator){
     this.ventilator = ventilator;
 
     }
 
     public void ausfuehren(){
         letzteGeschwindigkeit = ventilator.getStufe();
-        ventilator.aus();
+        ventilator.mittel();
     }
 
     public void rueckgaengig() {
