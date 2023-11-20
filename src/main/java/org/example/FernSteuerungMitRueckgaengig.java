@@ -39,7 +39,7 @@ public class FernSteuerungMitRueckgaengig {
         for(int i = 0; i < anBefehle.length; i++){
             stringBuff.append("[P " + i + "] " + anBefehle[i].getClass().getName() + "            " + ausBefehle[i].getClass().getName() + "\n");
         }
-        stringBuff.append("Rückgängig" + rueckgaengigBefehl.getClass().getName());
+        stringBuff.append("[ Rückgängig ] " + rueckgaengigBefehl.getClass().getName() + "\n");
         return stringBuff.toString();
     }
 }

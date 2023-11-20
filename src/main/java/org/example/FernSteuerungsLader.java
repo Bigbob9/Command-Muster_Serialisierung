@@ -5,28 +5,27 @@ public class FernSteuerungsLader {
     public static void main(String[] args) {
         FernSteuerungMitRueckgaengig fernSteuerungMitRueckgaengig = new FernSteuerungMitRueckgaengig();
 
+        Ventilator ventilator = new Ventilator("Wohnzimmer: ");
 
-        Licht wohnzimmerBeleuchtung = new Licht("Wohnzimmer:");
-
-        LichtAnBefehl wohnzimmerBeleuchtungAn = new LichtAnBefehl(wohnzimmerBeleuchtung);
-        LichtAusBefehl wohnzimmerBeleuchtungAus = new LichtAusBefehl(wohnzimmerBeleuchtung);
-
-
+        VentilatorMittelBefehl  ventilatorMittelBefehl = new VentilatorMittelBefehl(ventilator);
+        VentilatorSchnellBefehl ventilatorSchnellBefehl = new VentilatorSchnellBefehl(ventilator);
+        VentilatorAusBefehl ventilatorAusBefehl = new VentilatorAusBefehl(ventilator);
 
 
-        fernSteuerungMitRueckgaengig.setBefehl(0, wohnzimmerBeleuchtungAn, wohnzimmerBeleuchtungAus);
 
 
+
+        fernSteuerungMitRueckgaengig.setBefehl(0, ventilatorMittelBefehl, ventilatorAusBefehl);
+        fernSteuerungMitRueckgaengig.setBefehl(1, ventilatorSchnellBefehl,ventilatorAusBefehl);
 
 
         fernSteuerungMitRueckgaengig.anKnopfWurdeGedrueckt(0);
         fernSteuerungMitRueckgaengig.ausKnopfWurdeGedrueckt(0);
         System.out.println(fernSteuerungMitRueckgaengig);
-
         fernSteuerungMitRueckgaengig.rueckgaengigKnopfWurdeGedrueckt();
 
-        fernSteuerungMitRueckgaengig.ausKnopfWurdeGedrueckt(0);
-        fernSteuerungMitRueckgaengig.anKnopfWurdeGedrueckt(0);
+        fernSteuerungMitRueckgaengig.anKnopfWurdeGedrueckt(1);
+
         System.out.println(fernSteuerungMitRueckgaengig);
 
         fernSteuerungMitRueckgaengig.rueckgaengigKnopfWurdeGedrueckt();
