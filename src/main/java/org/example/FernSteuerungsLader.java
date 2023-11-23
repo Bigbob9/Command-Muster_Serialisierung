@@ -6,26 +6,13 @@ public class FernSteuerungsLader {
         FernSteuerungMitRueckgaengig fernSteuerungMitRueckgaengig = new FernSteuerungMitRueckgaengig();
 
         Licht licht = new Licht("Wohnzimmer: ");
-        Fernseher fernseher = new Fernseher("Wohnzimmer: ");
-        StereoAnlage stereo = new StereoAnlage("Wohnzimmer: ");
-        Whirlpool whirlpool = new Whirlpool();
+
 
         LichtAnBefehl lichtAnBefehl = new LichtAnBefehl(licht);
         LichtAusBefehl lichtAusBefehl = new LichtAusBefehl(licht);
-        FernseherAnBefehl fernseherAnBefehl = new FernseherAnBefehl(fernseher);
-        FernseherAusBefehl fernseherAusBefehl = new FernseherAusBefehl(fernseher);
-        StereoAnlageAnBefehl stereoAnlageAnBefehl = new StereoAnlageAnBefehl(stereo);
-        StereoAnlageAusBefehl stereoAnlageAusBefehl = new StereoAnlageAusBefehl(stereo);
-        WhirlpoolAnBefehl whirlpoolAnBefehl = new WhirlpoolAnBefehl(whirlpool);
-        WhirlpoolAusBefehl whirlpoolAusBefehl = new WhirlpoolAusBefehl(whirlpool);
 
-        Befehl[] anBefehle = new Befehl[]{ lichtAnBefehl, fernseherAnBefehl, stereoAnlageAnBefehl, whirlpoolAnBefehl};
-        Befehl[] ausBefehle = new Befehl[]{ lichtAusBefehl, fernseherAusBefehl, stereoAnlageAusBefehl, whirlpoolAusBefehl};
 
-        MakroBefehl makroAnBefehl = new MakroBefehl(anBefehle);
-        MakroBefehl makroAusBefehl = new MakroBefehl(ausBefehle);
-
-        fernSteuerungMitRueckgaengig.setBefehl(0, makroAnBefehl, makroAusBefehl);
+        fernSteuerungMitRueckgaengig.setBefehl(0, lichtAnBefehl, lichtAusBefehl);
 
         System.out.println(fernSteuerungMitRueckgaengig);
 
@@ -37,6 +24,9 @@ public class FernSteuerungsLader {
         fernSteuerungMitRueckgaengig.rueckgaengigKnopfWurdeGedrueckt();
 
         System.out.println(fernSteuerungMitRueckgaengig);
+
+        Speicher.befehleLaden();
+
 
 
 

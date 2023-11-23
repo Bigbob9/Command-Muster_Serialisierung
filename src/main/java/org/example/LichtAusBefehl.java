@@ -11,11 +11,23 @@ public class LichtAusBefehl implements Befehl {
     }
 
     public void ausfuehren(){
+        speichern();
         licht.aus();
     }
 
     @Override
     public void rueckgaengig() {
         licht.ein();
+    }
+
+    @Override
+    public void speichern() {
+        speicher.befehleSpeichern(this);
+
+    }
+
+    @Override
+    public void laden() {
+licht.aus();
     }
 }

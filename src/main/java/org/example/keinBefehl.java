@@ -9,4 +9,14 @@ public class keinBefehl implements Befehl {
     public void rueckgaengig() {
 
     }
+
+    @Override
+    public void speichern() {
+
+    }
+
+    @Override
+    public void laden() {
+
+    }
 }

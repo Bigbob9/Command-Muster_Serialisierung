@@ -9,11 +9,24 @@ public class LichtAnBefehl implements Befehl {
     }
 
     public void ausfuehren(){
+        speichern();
         licht.ein();
     }
 
     @Override
     public void rueckgaengig() {
         licht.aus();
+    }
+
+    @Override
+    public void speichern() {
+        speicher.befehleSpeichern(this);
+
+    }
+
+    @Override
+    public void laden() {
+        licht.ein();
+
     }
 }
